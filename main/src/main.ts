@@ -23,6 +23,18 @@ const menu: Alcohol[] = [
 
 const orderHistory: Order[] = [];
 
+// function addToArray<Type>(array: Type[], item: Type): Type[] {
+//   array.push(item);
+//   return array;
+// }
+
+// addToArray<Alcohol>(menu, { id: nextAlcoholId++, name: 'Gin', price: 80 });
+// addToArray<Order>(orderHistory, {
+//   id: nextOrderId++,
+//   alcohol: menu[2],
+//   status: 'completed',
+// });
+
 function addNewAlcohol(alcoholObj: Omit<Alcohol, 'id'>): Alcohol {
   const newAlcohol = {
     id: nextAlcoholId++,
@@ -50,6 +62,7 @@ function placeOrder(alcoholName: string): Order | undefined {
     alcohol: selectedAlcohol,
     status: 'ordered',
   };
+
   orderHistory.push(newOrder);
   return newOrder;
 }
